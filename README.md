@@ -35,4 +35,4 @@ Pasos para ejecutar el proyecto
    ```bash
    dotnet run
    ```  
-   Disponible en: [https://localhost:7275](https://localhost:7275)  
+   Disponible en: [https://localhost:7275]  
