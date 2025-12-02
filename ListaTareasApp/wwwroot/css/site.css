@@ -1,0 +1,57 @@
+/* Estilos para Login y Register - SIMPLE */
+
+/* Ocultar enlaces innecesarios */
+a[href*="ForgotPassword"],
+a[href*="ResendEmailConfirmation"] {
+    display: none !important;
+}
+
+/* Ocultar la sección completa "Use another service" */
+#account section {
+    display: none !important;
+}
+
+    #account section:first-of-type {
+        display: block !important;
+    }
+
+#account .col-md-6:last-child {
+    display: none !important;
+}
+
+#account h2:last-of-type {
+    display: none !important;
+}
+
+/* Ocultar todo lo que tenga "Use another service" */
+#account form + section,
+#account div > section:last-child {
+    display: none !important;
+}
+
+/* Ocultar checkbox "Remember me" */
+#account .form-check {
+    display: none !important;
+}
+
+/* Ocultar el enlace "Register as a new user" */
+#account p:has(a[href*="Register"]) {
+    display: none !important;
+}
+
+/* Centrar el formulario */
+#account .row {
+    display: flex;
+    justify-content: center;
+}
+
+#account .col-md-4,
+#account .col-md-6 {
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Asegurar que solo se muestre el formulario principal */
+#account > .row > div:last-child {
+    display: none !important;
+}

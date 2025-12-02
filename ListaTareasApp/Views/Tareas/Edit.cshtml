@@ -1,0 +1,60 @@
+﻿@model ListaTareasApp.Models.Tarea
+
+@{
+    ViewData["Title"] = "Editar Tarea";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-4">✏️ Editar Tarea</h1>
+
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <div class="form-group">
+                            <label asp-for="Titulo" class="control-label">Título</label>
+                            <input asp-for="Titulo" class="form-control" />
+                            <span asp-validation-for="Titulo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Descripcion" class="control-label">Descripción</label>
+                            <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Prioridad" class="control-label">Prioridad</label>
+                            <select asp-for="Prioridad" class="form-control">
+                                <option value="Baja">🔵 Baja</option>
+                                <option value="Media">🟡 Media</option>
+                                <option value="Alta">🔴 Alta</option>
+                            </select>
+                            <span asp-validation-for="Prioridad" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group form-check">
+                            <input asp-for="Completada" class="form-check-input" />
+                            <label asp-for="Completada" class="form-check-label">
+                                Marcar como completada
+                            </label>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-success">💾 Guardar Cambios</button>
+                            <a asp-action="Index" class="btn btn-secondary">❌ Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

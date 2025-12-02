@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaTareasApp", "ListaTareasApp\ListaTareasApp.csproj", "{FDED2A2C-7DDC-463C-A005-A6651C5D9E3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDED2A2C-7DDC-463C-A005-A6651C5D9E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDED2A2C-7DDC-463C-A005-A6651C5D9E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDED2A2C-7DDC-463C-A005-A6651C5D9E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDED2A2C-7DDC-463C-A005-A6651C5D9E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5A7E5DD-EA8A-4786-834F-C74F3589F8C7}
+	EndGlobalSection
+EndGlobal

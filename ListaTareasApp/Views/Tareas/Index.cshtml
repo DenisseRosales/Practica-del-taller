@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ListaTareasApp.Models.Tarea>
+
+@{
+    ViewData["Title"] = "Mis Tareas";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">Mis Tareas</h1>
+
+            <div class="mb-3">
+                <a asp-action="Create" class="btn btn-primary">Nueva Tarea</a>
+            </div>
+
+            <!-- Filtro por prioridad -->
+            <div class="mb-3">
+                <form method="get" class="form-inline">
+                    <label class="mr-2">Filtrar por prioridad:</label>
+                    <select name="prioridad" class="form-control mr-2" onchange="this.form.submit()">
+                        <option value="">Todas</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                    </select>
+                    <a asp-action="Index" class="btn btn-secondary">Limpiar filtro</a>
+                </form>
+            </div>
+
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Estado</th>
+                                <th>Título</th>
+                                <th>Descripción</th>
+                                <th>Prioridad</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var bgStyle = "";
+                                
+                                if (item.Completada)
+                                {
+                                    bgStyle = "background-color: #d4edda; border-left: 4px solid #28a745;";
+                                }
+                                else
+                                {
+                                    if (item.Prioridad == "Alta")
+                                    {
+                                        bgStyle = "background-color: #f8d7da; border-left: 4px solid #dc3545;";
+                                    }
+                                    else if (item.Prioridad == "Media")
+                                    {
+                                        bgStyle = "background-color: #fff3cd; border-left: 4px solid #ffc107;";
+                                    }
+                                    else if (item.Prioridad == "Baja")
+                                    {
+                                        bgStyle = "background-color: #d1ecf1; border-left: 4px solid #17a2b8;";
+                                    }
+                                }
+                                
+                                <tr style="@bgStyle">
+                                    <td style="color: #000;">
+                                        @if (item.Completada)
+                                        {
+                                            <span class="badge" style="background-color: #28a745; color: #fff;">Completada</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge" style="background-color: #ffc107; color: #000;">Pendiente</span>
+                                        }
+                                    </td>
+                                    <td style="color: #000; font-weight: bold;">
+                                        @if (item.Completada)
+                                        {
+                                            <del>@item.Titulo</del>
+                                        }
+                                        else
+                                        {
+                                            @item.Titulo
+                                        }
+                                    </td>
+                                    <td style="color: #000;">@item.Descripcion</td>
+                                    <td style="color: #000;">
+                                        @if (item.Prioridad == "Alta")
+                                        {
+                                            <span class="badge" style="background-color: #dc3545; color: #fff;">Alta</span>
+                                        }
+                                        else if (item.Prioridad == "Media")
+                                        {
+                                            <span class="badge" style="background-color: #ffc107; color: #000;">Media</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge" style="background-color: #17a2b8; color: #fff;">Baja</span>
+                                        }
+                                    </td>
+                                    <td style="color: #000;">@item.FechaCreacion.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning" style="color: #000;">Editar</a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger" style="color: #fff;">Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <h4>No tienes tareas aún</h4>
+                    <p>Haz clic en "Nueva Tarea" para agregar tu primera tarea.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
